@@ -5,13 +5,13 @@ from phones.models import Phone
 
 
 class Command(BaseCommand):
-    def add_arguments(self, parser):
-        pass
+    help = 'Uses phone.csv file to fill Phone model with content.'
 
     def handle(self, *args, **options):
         with open('phones.csv', 'r') as file:
             phones = list(csv.DictReader(file, delimiter=';'))
 
         for phone in phones:
-            # TODO: Добавьте сохранение модели
-            pass
+            slug = '-'.join(phone['name'].lower().split())
+            phone.update({'slug': slug})
+            Phone.objects.create(**phone)

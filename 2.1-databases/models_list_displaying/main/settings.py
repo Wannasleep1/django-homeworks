@@ -57,8 +57,8 @@ DATABASES = {
         'NAME': 'booksdb',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'USER': 'postgres',
-        'PASSWORD': '3567997597356175-sy'
+        'USER': '',
+        'PASSWORD': '',
     }
 }
 
