@@ -1,6 +1,5 @@
 import pytest
-from model_bakery import baker, seq
-from model_bakery.recipe import Recipe
+from model_bakery import baker
 
 from rest_framework.test import APIClient
 
@@ -10,11 +9,6 @@ from students.models import Student, Course
 @pytest.fixture
 def client():
     return APIClient()
-
-
-@pytest.fixture(autouse=True)
-def override_students_limit(settings):
-    settings.MAX_STUDENTS_PER_COURSE = [settings.MAX_STUDENTS_PER_COURSE][0]
 
 
 @pytest.fixture
